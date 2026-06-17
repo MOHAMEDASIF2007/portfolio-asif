@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 
 const ContactForm = () => {
+  const form = useRef();
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState(null); // 'success', 'error'
+  const [status, setStatus] = useState(null); // 'success', 'error', 'empty_fields', 'invalid_email'
 
   const validateEmail = (email) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
 
-  const handleSubmit = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
       setStatus('empty_fields');
@@ -25,23 +27,33 @@ const ContactForm = () => {
     setLoading(true);
     setStatus(null);
 
-    // Simulate sending message
-    setTimeout(() => {
+    emailjs.sendForm(
+      "service_hnb0pdr",
+      "template_g7kqopw",
+      form.current,
+      "EYIRrqv93sEtkg05S"
+    )
+    .then((result) => {
       setLoading(false);
       setStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 1500);
+    }, (error) => {
+      setLoading(false);
+      setStatus('error');
+      console.error('EmailJS Error:', error);
+    });
   };
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      <form ref={form} onSubmit={sendEmail} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
           {/* Name field */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
             <label style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--accent-grey)' }}>Full Name *</label>
             <input
               type="text"
+              name="name"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               placeholder="e.g. Mohamed Asif"
@@ -66,6 +78,7 @@ const ContactForm = () => {
             <label style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--accent-grey)' }}>Email Address *</label>
             <input
               type="email"
+              name="email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               placeholder="e.g. mohamedasif@example.com"
@@ -91,6 +104,7 @@ const ContactForm = () => {
           <label style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--accent-grey)' }}>Subject</label>
           <input
             type="text"
+            name="subject"
             value={formData.subject}
             onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
             placeholder="How can we collaborate?"
@@ -114,6 +128,7 @@ const ContactForm = () => {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
           <label style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--accent-grey)' }}>Message *</label>
           <textarea
+            name="message"
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
             placeholder="Type your message here..."
@@ -168,6 +183,17 @@ const ContactForm = () => {
             >
               <CheckCircle size={16} />
               <span>Thank you! Your message has been sent successfully.</span>
+            </motion.div>
+          )}
+          {status === 'error' && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#ef4444', fontSize: '0.85rem' }}
+            >
+              <AlertCircle size={16} />
+              <span>Failed to send the message. Please try again.</span>
             </motion.div>
           )}
         </AnimatePresence>
