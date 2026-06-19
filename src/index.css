@@ -829,6 +829,39 @@ body {
   font-weight: bold;
 }
 
+/* Education Icon Dot on Timeline */
+.timeline-icon-dot {
+  position: absolute;
+  left: -43px;
+  top: 4px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--bg-dark);
+  border: 1px solid var(--border-glass);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-grey);
+  z-index: 2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: var(--transition-bounce);
+}
+
+.timeline-item:hover .timeline-icon-dot {
+  border-color: var(--accent-white);
+  color: var(--accent-white);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+/* Education Subjects Styling */
+.education-subjects {
+  margin-top: 16px;
+  border-top: 1px solid var(--border-glass);
+  padding-top: 16px;
+}
+
 /* Certifications Section */
 .cert-card {
   padding: 28px;

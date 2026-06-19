@@ -5,10 +5,12 @@ import {
   Download, 
   Menu, 
   X, 
-  Code
+  Code,
+  GraduationCap,
+  School
 } from 'lucide-react';
 
-import { GitHub, LinkedIn, LeetCode, CodeChef, Skillrack, HackerRank } from './components/BrandIcons';
+import { GitHub, LinkedIn } from './components/BrandIcons';
 import ProjectCard from './components/ProjectCard';
 import CertificationCard from './components/CertificationCard';
 import ContactForm from './components/ContactForm';
@@ -42,7 +44,7 @@ function App() {
 
   // Section observer to update navigation active state
   useEffect(() => {
-    const sections = ['home', 'about', 'tech-stack', 'projects', 'experience', 'certifications', 'coding', 'contact'];
+    const sections = ['home', 'about', 'education', 'projects', 'tech-stack', 'experience', 'certifications', 'contact'];
     
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 200;
@@ -156,11 +158,11 @@ function App() {
               {[
                 { id: 'home', label: 'Home' },
                 { id: 'about', label: 'About' },
-                { id: 'tech-stack', label: 'Tech Stack' },
+                { id: 'education', label: 'Education' },
                 { id: 'projects', label: 'Projects' },
+                { id: 'tech-stack', label: 'Tech Stack' },
                 { id: 'experience', label: 'Experience' },
                 { id: 'certifications', label: 'Certifications' },
-                { id: 'coding', label: 'Coding' },
                 { id: 'contact', label: 'Contact' }
               ].map((item) => (
                 <li key={item.id} style={{ listStyle: 'none' }}>
@@ -205,11 +207,11 @@ function App() {
               {[
                 { id: 'home', label: 'Home' },
                 { id: 'about', label: 'About' },
-                { id: 'tech-stack', label: 'Tech Stack' },
+                { id: 'education', label: 'Education' },
                 { id: 'projects', label: 'Projects' },
+                { id: 'tech-stack', label: 'Tech Stack' },
                 { id: 'experience', label: 'Experience' },
                 { id: 'certifications', label: 'Certifications' },
-                { id: 'coding', label: 'Coding' },
                 { id: 'contact', label: 'Contact' }
               ].map((item) => (
                 <a
@@ -388,6 +390,139 @@ function App() {
         </div>
       </section>
 
+      {/* EDUCATION SECTION */}
+      <section id="education" className="section-container" style={{ borderTop: '1px solid var(--border-glass)' }}>
+        <motion.h3 {...fadeInUp} className="section-title">Education</motion.h3>
+        
+        <div className="timeline">
+          {/* Milestone 1: B.Tech */}
+          <motion.div {...fadeInLeft} className="timeline-item">
+            <div className="timeline-icon-dot">
+              <GraduationCap size={16} />
+            </div>
+            <div className="glass-panel timeline-card">
+              <div className="timeline-header">
+                <div>
+                  <h4 className="timeline-role">Bachelor of Technology (B.Tech)</h4>
+                  <div className="timeline-company">Sri Eshwar College of Engineering</div>
+                  <div style={{ fontSize: '0.85rem', color: 'var(--accent-muted)', marginTop: '2px' }}>
+                    Coimbatore, Tamil Nadu
+                  </div>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '6px' }}>
+                  <span className="timeline-duration">2024 – 2028</span>
+                  <span style={{ 
+                    fontSize: '0.75rem', 
+                    fontWeight: 600, 
+                    color: 'var(--accent-white)', 
+                    background: 'rgba(255, 255, 255, 0.05)', 
+                    border: '1px solid var(--border-glass)',
+                    padding: '2px 8px',
+                    borderRadius: '4px',
+                    fontFamily: 'var(--font-mono)'
+                  }}>
+                    Currently Pursuing
+                  </span>
+                </div>
+              </div>
+              
+              <p style={{ fontSize: '0.92rem', color: 'var(--accent-grey)', lineHeight: '1.6', marginBottom: '16px' }}>
+                Currently pursuing a Bachelor of Technology in Information Technology with a strong focus on Full Stack Development, Software Engineering, Java Spring Boot, MERN Stack, Artificial Intelligence, Cloud Computing, DevOps, and Database Systems.
+              </p>
+
+              <div className="education-subjects">
+                <div style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--accent-white)', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  Relevant Subjects
+                </div>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                  <span className="tech-badge">Data Structures & Algorithms</span>
+                  <span className="tech-badge">Object-Oriented Programming</span>
+                  <span className="tech-badge">Database Management Systems</span>
+                  <span className="tech-badge">Software Engineering</span>
+                  <span className="tech-badge">Web Development</span>
+                  <span className="tech-badge">Artificial Intelligence</span>
+                  <span className="tech-badge">Cloud Computing</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Milestone 2: 12th Grade */}
+          <motion.div {...fadeInLeft} transition={{ delay: 0.1 }} className="timeline-item">
+            <div className="timeline-icon-dot">
+              <School size={16} />
+            </div>
+            <div className="glass-panel timeline-card">
+              <div className="timeline-header">
+                <div>
+                  <h4 className="timeline-role">Higher Secondary Education (12th Grade)</h4>
+                  <div className="timeline-company">Sree Adharsh Matriculation Higher Secondary School</div>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '6px' }}>
+                  <span className="timeline-duration">2022 – 2024</span>
+                  <span style={{ 
+                    fontSize: '0.75rem', 
+                    fontWeight: 600, 
+                    color: 'var(--accent-white)', 
+                    background: 'rgba(255, 255, 255, 0.05)', 
+                    border: '1px solid var(--border-glass)',
+                    padding: '2px 8px',
+                    borderRadius: '4px',
+                    fontFamily: 'var(--font-mono)'
+                  }}>
+                    Percentage: 76%
+                  </span>
+                </div>
+              </div>
+              <p style={{ fontSize: '0.92rem', color: 'var(--accent-grey)', lineHeight: '1.6' }}>
+                Completed Higher Secondary Education with a focus on Mathematics, Physics, Chemistry, and Computer Science while developing strong analytical and problem-solving skills.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Milestone 3: 10th Grade */}
+          <motion.div {...fadeInLeft} transition={{ delay: 0.2 }} className="timeline-item">
+            <div className="timeline-icon-dot">
+              <School size={16} />
+            </div>
+            <div className="glass-panel timeline-card">
+              <div className="timeline-header">
+                <div>
+                  <h4 className="timeline-role">Secondary School Education (10th Grade)</h4>
+                  <div className="timeline-company">Sree Adharsh Matriculation Higher Secondary School</div>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '6px' }}>
+                  <span className="timeline-duration">2021 – 2022</span>
+                  <span style={{ 
+                    fontSize: '0.75rem', 
+                    fontWeight: 600, 
+                    color: 'var(--accent-white)', 
+                    background: 'rgba(255, 255, 255, 0.05)', 
+                    border: '1px solid var(--border-glass)',
+                    padding: '2px 8px',
+                    borderRadius: '4px',
+                    fontFamily: 'var(--font-mono)'
+                  }}>
+                    Percentage: 80.8%
+                  </span>
+                </div>
+              </div>
+              <p style={{ fontSize: '0.92rem', color: 'var(--accent-grey)', lineHeight: '1.6' }}>
+                Completed Secondary School Education with consistent academic performance and a strong foundation in mathematics, science, and logical reasoning.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* PROJECTS SECTION */}
+      <section id="projects" className="section-container" style={{ borderTop: '1px solid var(--border-glass)' }}>
+        <motion.h3 {...fadeInUp} className="section-title">Featured Projects</motion.h3>
+        <motion.div {...fadeInUp}>
+          <ProjectCard />
+        </motion.div>
+      </section>
+
       {/* TECH STACK SECTION */}
       <section id="tech-stack" className="section-container" style={{ borderTop: '1px solid var(--border-glass)' }}>
         <motion.h3 {...fadeInUp} className="section-title">Technology Stack</motion.h3>
@@ -421,14 +556,6 @@ function App() {
             </motion.div>
           ))}
         </div>
-      </section>
-
-      {/* PROJECTS SECTION */}
-      <section id="projects" className="section-container" style={{ borderTop: '1px solid var(--border-glass)' }}>
-        <motion.h3 {...fadeInUp} className="section-title">Featured Projects</motion.h3>
-        <motion.div {...fadeInUp}>
-          <ProjectCard />
-        </motion.div>
       </section>
 
       {/* EXPERIENCE SECTION */}
@@ -483,103 +610,6 @@ function App() {
         </motion.div>
       </section>
 
-      {/* CODING PLATFORMS SECTION */}
-      <section id="coding" className="section-container" style={{ borderTop: '1px solid var(--border-glass)' }}>
-        <motion.h3 {...fadeInUp} className="section-title">Coding Profiles</motion.h3>
-        
-        <div className="coding-grid">
-          <motion.div {...fadeInUp} transition={{ delay: 0.1 }} className="glass-panel coding-card leetcode-card">
-            <div className="coding-card-accent" />
-            <div className="coding-card-header">
-              <div className="coding-icon-wrapper">
-                <LeetCode size={36} />
-              </div>
-              <div className="coding-title-group">
-                <h4 className="coding-platform-name">LeetCode</h4>
-                <div className="coding-username">mohamedasif_05</div>
-              </div>
-            </div>
-            <p className="coding-card-desc">
-              Actively solving algorithms, data structures, and dynamic programming challenges.
-            </p>
-            <a 
-              href="https://leetcode.com/u/mohamedasif_05/" 
-              target="_blank" 
-              rel="noreferrer"
-              className="btn-primary coding-btn"
-            >
-              View Profile
-            </a>
-          </motion.div>
-
-          <motion.div {...fadeInUp} transition={{ delay: 0.2 }} className="glass-panel coding-card codechef-card">
-            <div className="coding-card-accent" />
-            <div className="coding-card-header">
-              <div className="coding-icon-wrapper">
-                <CodeChef size={36} />
-              </div>
-              <div className="coding-title-group">
-                <h4 className="coding-platform-name">CodeChef</h4>
-                <div className="coding-username">mohamedasif_05</div>
-              </div>
-            </div>
-            <p className="coding-card-desc">
-              Participating in monthly contests and competitive coding challenges.
-            </p>
-            <a 
-              href="https://www.codechef.com/users/mohamedasif_05" 
-              target="_blank" 
-              rel="noreferrer"
-              className="btn-primary coding-btn"
-            >
-              View Profile
-            </a>
-          </motion.div>
-
-          <motion.div {...fadeInUp} transition={{ delay: 0.3 }} className="glass-panel coding-card skillrack-card">
-            <div className="coding-card-accent" />
-            <div className="coding-card-header">
-              <div className="coding-icon-wrapper">
-                <Skillrack size={36} />
-              </div>
-              <div className="coding-title-group">
-                <h4 className="coding-platform-name">Skillrack</h4>
-                <div className="coding-username">mohamedasif (515471)</div>
-              </div>
-            </div>
-            <p className="coding-card-desc">
-              Solving daily challenges, logical tests, and tracking runtime improvements.
-            </p>
-            <a 
-              href="https://www.skillrack.com/faces/resume.xhtml?id=515471&key=a5141b4a3f3f37726ccf59f44f864af61a7c4428" 
-              target="_blank" 
-              rel="noreferrer"
-              className="btn-primary coding-btn"
-            >
-              View Profile
-            </a>
-          </motion.div>
-          {/* HackerRank Card */}
-          <motion.div {...fadeInUp} transition={{ delay: 0.4 }} className="glass-panel coding-card hackerrank-card">
-            <div className="coding-card-accent" />
-            <div className="coding-card-header">
-              <div className="coding-icon-wrapper">
-                <HackerRank size={36} />
-              </div>
-              <div className="coding-title-group">
-                <h4 className="coding-platform-name">HackerRank</h4>
-                <div className="coding-username">asif_07</div>
-              </div>
-            </div>
-            <p className="coding-card-desc">
-              Competitive programming and algorithmic challenges platform.
-            </p>
-            <a href="https://www.hackerrank.com/profile/asif_07" target="_blank" rel="noreferrer" className="btn-primary coding-btn">
-              View Profile
-            </a>
-          </motion.div>
-        </div>
-      </section>
 
       {/* CONTACT SECTION */}
       <section id="contact" className="section-container" style={{ borderTop: '1px solid var(--border-glass)' }}>
