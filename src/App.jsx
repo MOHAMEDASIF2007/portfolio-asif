@@ -10,7 +10,7 @@ import {
   School
 } from 'lucide-react';
 
-import { GitHub, LinkedIn } from './components/BrandIcons';
+import { GitHub, LinkedIn, LeetCode, CodeChef, Skillrack, HackerRank } from './components/BrandIcons';
 import ProjectCard from './components/ProjectCard';
 import CertificationCard from './components/CertificationCard';
 import ContactForm from './components/ContactForm';
@@ -44,7 +44,7 @@ function App() {
 
   // Section observer to update navigation active state
   useEffect(() => {
-    const sections = ['home', 'about', 'education', 'projects', 'tech-stack', 'experience', 'certifications', 'contact'];
+    const sections = ['home', 'about', 'education', 'projects', 'tech-stack', 'certifications', 'coding', 'contact'];
     
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 200;
@@ -161,8 +161,8 @@ function App() {
                 { id: 'education', label: 'Education' },
                 { id: 'projects', label: 'Projects' },
                 { id: 'tech-stack', label: 'Tech Stack' },
-                { id: 'experience', label: 'Experience' },
                 { id: 'certifications', label: 'Certifications' },
+                { id: 'coding', label: 'Coding' },
                 { id: 'contact', label: 'Contact' }
               ].map((item) => (
                 <li key={item.id} style={{ listStyle: 'none' }}>
@@ -210,8 +210,8 @@ function App() {
                 { id: 'education', label: 'Education' },
                 { id: 'projects', label: 'Projects' },
                 { id: 'tech-stack', label: 'Tech Stack' },
-                { id: 'experience', label: 'Experience' },
                 { id: 'certifications', label: 'Certifications' },
+                { id: 'coding', label: 'Coding' },
                 { id: 'contact', label: 'Contact' }
               ].map((item) => (
                 <a
@@ -558,49 +558,6 @@ function App() {
         </div>
       </section>
 
-      {/* EXPERIENCE SECTION */}
-      <section id="experience" className="section-container" style={{ borderTop: '1px solid var(--border-glass)' }}>
-        <motion.h3 {...fadeInUp} className="section-title">Experience</motion.h3>
-        
-        <div className="timeline">
-          <motion.div {...fadeInLeft} className="timeline-item">
-            <div className="timeline-dot" />
-            <div className="glass-panel timeline-card">
-              <div className="timeline-header">
-                <div>
-                  <h4 className="timeline-role">Full Stack Developer & Software Engineering Focus</h4>
-                  <div className="timeline-company">Personal Projects & Academic Stacks</div>
-                </div>
-                <span className="timeline-duration">2025 - Present</span>
-              </div>
-              <ul className="timeline-achievements">
-                <li>Designed and developed clean architectures and secure database pathways for web applications.</li>
-                <li>Created highly modular REST API endpoints using Java Spring Boot and Node.js.</li>
-                <li>Integrated responsive visual designs using React.js and custom vanilla modules.</li>
-                <li>Designed normalized SQL schema maps and scalable MongoDB collection layouts for academic marketplaces and portals.</li>
-              </ul>
-            </div>
-          </motion.div>
-
-          <motion.div {...fadeInLeft} className="timeline-item">
-            <div className="timeline-dot" />
-            <div className="glass-panel timeline-card">
-              <div className="timeline-header">
-                <div>
-                  <h4 className="timeline-role">DevOps & Cloud-Native Architect</h4>
-                  <div className="timeline-company">Containerization & Deployment Practice</div>
-                </div>
-                <span className="timeline-duration">2026 - Present</span>
-              </div>
-              <ul className="timeline-achievements">
-                <li>Orchestrated multi-container applications locally using Docker Compose environment configurations.</li>
-                <li>Configured local single-node Kubernetes cluster pods to replicate enterprise microservices deployments.</li>
-                <li>Wrote functional automation scripts and compiled pipeline configurations using GitHub Actions triggers.</li>
-              </ul>
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* CERTIFICATIONS SECTION */}
       <section id="certifications" className="section-container" style={{ borderTop: '1px solid var(--border-glass)' }}>
@@ -610,6 +567,115 @@ function App() {
         </motion.div>
       </section>
 
+      {/* CODING PLATFORMS SECTION */}
+      <section id="coding" className="section-container" style={{ borderTop: '1px solid var(--border-glass)' }}>
+        <motion.h3 {...fadeInUp} className="section-title">Coding Profiles</motion.h3>
+        
+        <div className="coding-grid">
+          <motion.div {...fadeInUp} transition={{ delay: 0.1 }} className="glass-panel coding-card leetcode-card">
+            <div className="coding-card-accent" />
+            <div className="coding-card-header">
+              <div className="coding-icon-wrapper">
+                <LeetCode size={36} />
+              </div>
+              <div className="coding-title-group">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                  <h4 className="coding-platform-name">LeetCode</h4>
+                  <span className="tech-badge" style={{ fontSize: '0.8rem', padding: '3px 10px', fontWeight: 'bold', color: 'var(--accent-white)', borderColor: 'var(--accent-muted)', background: 'rgba(255, 255, 255, 0.08)' }}>275+ Solved</span>
+                </div>
+                <div className="coding-username">mohamedasif_05</div>
+              </div>
+            </div>
+            <p className="coding-card-desc">
+              Actively solving algorithms, data structures, and dynamic programming challenges.
+            </p>
+            <a 
+              href="https://leetcode.com/u/mohamedasif_05/" 
+              target="_blank" 
+              rel="noreferrer"
+              className="btn-primary coding-btn"
+            >
+              View Profile
+            </a>
+          </motion.div>
+
+          <motion.div {...fadeInUp} transition={{ delay: 0.2 }} className="glass-panel coding-card codechef-card">
+            <div className="coding-card-accent" />
+            <div className="coding-card-header">
+              <div className="coding-icon-wrapper">
+                <CodeChef size={36} />
+              </div>
+              <div className="coding-title-group">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                  <h4 className="coding-platform-name">CodeChef</h4>
+                  <span className="tech-badge" style={{ fontSize: '0.8rem', padding: '3px 10px', fontWeight: 'bold', color: 'var(--accent-white)', borderColor: 'var(--accent-muted)', background: 'rgba(255, 255, 255, 0.08)' }}>50+ Solved</span>
+                </div>
+                <div className="coding-username">mohamedasif_05</div>
+              </div>
+            </div>
+            <p className="coding-card-desc">
+              Participating in monthly contests and competitive coding challenges.
+            </p>
+            <a 
+              href="https://www.codechef.com/users/mohamedasif_05" 
+              target="_blank" 
+              rel="noreferrer"
+              className="btn-primary coding-btn"
+            >
+              View Profile
+            </a>
+          </motion.div>
+
+          <motion.div {...fadeInUp} transition={{ delay: 0.3 }} className="glass-panel coding-card skillrack-card">
+            <div className="coding-card-accent" />
+            <div className="coding-card-header">
+              <div className="coding-icon-wrapper">
+                <Skillrack size={36} />
+              </div>
+              <div className="coding-title-group">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                  <h4 className="coding-platform-name">Skillrack</h4>
+                  <span className="tech-badge" style={{ fontSize: '0.8rem', padding: '3px 10px', fontWeight: 'bold', color: 'var(--accent-white)', borderColor: 'var(--accent-muted)', background: 'rgba(255, 255, 255, 0.08)' }}>1000+ Solved</span>
+                </div>
+                <div className="coding-username">mohamedasif (515471)</div>
+              </div>
+            </div>
+            <p className="coding-card-desc">
+              Solving daily challenges, logical tests, and tracking runtime improvements.
+            </p>
+            <a 
+              href="https://www.skillrack.com/faces/resume.xhtml?id=515471&key=a5141b4a3f3f37726ccf59f44f864af61a7c4428" 
+              target="_blank" 
+              rel="noreferrer"
+              className="btn-primary coding-btn"
+            >
+              View Profile
+            </a>
+          </motion.div>
+          {/* HackerRank Card */}
+          <motion.div {...fadeInUp} transition={{ delay: 0.4 }} className="glass-panel coding-card hackerrank-card">
+            <div className="coding-card-accent" />
+            <div className="coding-card-header">
+              <div className="coding-icon-wrapper">
+                <HackerRank size={36} />
+              </div>
+              <div className="coding-title-group">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                  <h4 className="coding-platform-name">HackerRank</h4>
+                  <span className="tech-badge" style={{ fontSize: '0.8rem', padding: '3px 10px', fontWeight: 'bold', color: 'var(--accent-white)', borderColor: 'var(--accent-muted)', background: 'rgba(255, 255, 255, 0.08)' }}>15+ Solved</span>
+                </div>
+                <div className="coding-username">asif_07</div>
+              </div>
+            </div>
+            <p className="coding-card-desc">
+              Competitive programming and algorithmic challenges platform.
+            </p>
+            <a href="https://www.hackerrank.com/profile/asif_07" target="_blank" rel="noreferrer" className="btn-primary coding-btn">
+              View Profile
+            </a>
+          </motion.div>
+        </div>
+      </section>
 
       {/* CONTACT SECTION */}
       <section id="contact" className="section-container" style={{ borderTop: '1px solid var(--border-glass)' }}>
@@ -785,7 +851,7 @@ function App() {
               <div className="glass-panel" style={{ background: 'var(--bg-darker)', padding: '24px', borderRadius: '8px', border: '1px solid var(--border-glass)', fontSize: '0.82rem', color: 'var(--accent-grey)', display: 'flex', flexDirection: 'column', gap: '16px', fontFamily: 'var(--font-mono)' }}>
                 <div>
                   <h5 style={{ color: '#fff', fontSize: '1.1rem', fontWeight: 'bold', fontFamily: 'var(--font-sans)', marginBottom: '4px' }}>Mohamed Asif</h5>
-                  <div>Tamil Nadu, India | mohamedasif.i2007@gmail.com</div>
+                  <div>Tamil Nadu, India | <a href="mailto:mohamedasif.i2007@gmail.com" style={{ color: 'inherit', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={(e) => e.currentTarget.style.color = '#fff'} onMouseOut={(e) => e.currentTarget.style.color = 'inherit'}>mohamedasif.i2007@gmail.com</a></div>
                   <div>LinkedIn: linkedin.com/in/mohamedasif | GitHub: github.com/MOHAMEDASIF2007</div>
                 </div>
 
